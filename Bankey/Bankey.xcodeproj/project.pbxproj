@@ -16,6 +16,7 @@
 		059CCE8128F97B4F002BA274 /* BankeyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059CCE8028F97B4F002BA274 /* BankeyUITestsLaunchTests.swift */; };
 		059CCE9328F98BA6002BA274 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059CCE9228F98BA6002BA274 /* LoginView.swift */; };
 		059CCE9628F9D339002BA274 /* OnBoardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059CCE9528F9D339002BA274 /* OnBoardingContainerViewController.swift */; };
+		059CCE9828F9EE86002BA274 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059CCE9728F9EE86002BA274 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		059CCE8028F97B4F002BA274 /* BankeyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankeyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		059CCE9228F98BA6002BA274 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		059CCE9528F9D339002BA274 /* OnBoardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingContainerViewController.swift; sourceTree = "<group>"; };
+		059CCE9728F9EE86002BA274 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				059CCE9528F9D339002BA274 /* OnBoardingContainerViewController.swift */,
+				059CCE9728F9EE86002BA274 /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				059CCE9328F98BA6002BA274 /* LoginView.swift in Sources */,
 				059CCE6228F97B4C002BA274 /* LoginViewController.swift in Sources */,
+				059CCE9828F9EE86002BA274 /* OnboardingViewController.swift in Sources */,
 				059CCE5E28F97B4C002BA274 /* AppDelegate.swift in Sources */,
 				059CCE9628F9D339002BA274 /* OnBoardingContainerViewController.swift in Sources */,
 			);
