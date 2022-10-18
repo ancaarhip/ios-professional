@@ -54,7 +54,6 @@ extension AccountSummaryViewController {
                     return
                 }
             }
-            
         }.resume()
     }
 }
