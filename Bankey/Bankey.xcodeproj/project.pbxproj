@@ -37,6 +37,8 @@
 		05A5C16B28FE7CB4006E456D /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5C16A28FE7CB4006E456D /* AccountTest.swift */; };
 		05A5C16D28FEA6C9006E456D /* SkeletonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5C16C28FEA6C9006E456D /* SkeletonLoader.swift */; };
 		05A5C16F28FEAB3F006E456D /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5C16E28FEAB3F006E456D /* SkeletonCell.swift */; };
+		05A5C17228FED9D3006E456D /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5C17128FED9D3006E456D /* ProfileManager.swift */; };
+		05A5C17428FEDB23006E456D /* AccountSummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5C17328FEDB23006E456D /* AccountSummaryViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		05A5C16A28FE7CB4006E456D /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
 		05A5C16C28FEA6C9006E456D /* SkeletonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonLoader.swift; sourceTree = "<group>"; };
 		05A5C16E28FEAB3F006E456D /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
+		05A5C17128FED9D3006E456D /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		05A5C17328FEDB23006E456D /* AccountSummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +245,7 @@
 				05A5C16428FDC826006E456D /* AccountSummaryViewcontroller+Networking.swift */,
 				0593057C28FB558C0073AE00 /* Header */,
 				0593057D28FB55A70073AE00 /* Cells */,
+				05A5C17028FED9B2006E456D /* Networking */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -266,8 +271,17 @@
 			children = (
 				05A5C16828FE7B03006E456D /* ProfileTest.swift */,
 				05A5C16A28FE7CB4006E456D /* AccountTest.swift */,
+				05A5C17328FEDB23006E456D /* AccountSummaryViewControllerTests.swift */,
 			);
 			path = AccountSummary;
+			sourceTree = "<group>";
+		};
+		05A5C17028FED9B2006E456D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				05A5C17128FED9D3006E456D /* ProfileManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,6 +418,7 @@
 				059CCE9F28FB02A1002BA274 /* UIViewController+Utils.swift in Sources */,
 				05A5C16F28FEAB3F006E456D /* SkeletonCell.swift in Sources */,
 				05A5C16328FDC701006E456D /* Date+Utils.swift in Sources */,
+				05A5C17228FED9D3006E456D /* ProfileManager.swift in Sources */,
 				059CCE9328F98BA6002BA274 /* LoginView.swift in Sources */,
 				059CCE9D28FAD535002BA274 /* LocalState.swift in Sources */,
 				059CCEA628FB25E4002BA274 /* AccountSummaryHeaderView.swift in Sources */,
@@ -429,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A5C17428FEDB23006E456D /* AccountSummaryViewControllerTests.swift in Sources */,
 				059CCE7528F97B4E002BA274 /* BankeyTests.swift in Sources */,
 				05A5C16B28FE7CB4006E456D /* AccountTest.swift in Sources */,
 				05A5C16928FE7B03006E456D /* ProfileTest.swift in Sources */,
