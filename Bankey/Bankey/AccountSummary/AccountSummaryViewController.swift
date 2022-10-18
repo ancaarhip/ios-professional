@@ -22,6 +22,8 @@ class AccountSummaryViewController: UIViewController {
     var headerView = AccountSummaryHeaderView(frame: .zero)
     let refreshControl = UIRefreshControl()
     
+    var isLoaded = false
+    
     lazy var logoutBarButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
         barButtonItem.tintColor = .label
@@ -40,6 +42,7 @@ extension AccountSummaryViewController {
         setupTableView()
         setupTableHeaderView()
         setupRefreshControl()
+        setupSkeletons()
         fetchData()
     }
     
@@ -49,6 +52,7 @@ extension AccountSummaryViewController {
         tableVIew.dataSource = self
         
         tableVIew.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseId)
+        tableVIew.register(SkeletonCell.self, forCellReuseIdentifier: SkeletonCell.reuseId)
         tableVIew.rowHeight = AccountSummaryCell.rowHeigh
         
         tableVIew.tableFooterView = UIView()
@@ -81,6 +85,12 @@ extension AccountSummaryViewController {
         refreshControl.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
         tableVIew.refreshControl = refreshControl
     }
+    
+    private func setupSkeletons() {
+        let row = Account.makeSkeleton()
+        let skeletonArray = Array(repeating: row, count: 10)
+        configureTableCells(withAccounts: skeletonArray)
+    }
 }
 
 extension AccountSummaryViewController: UITableViewDataSource {
@@ -90,11 +100,14 @@ extension AccountSummaryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard !accountCellViewModels.isEmpty else { return UITableViewCell() }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseId, for: indexPath) as! AccountSummaryCell
         let acccount = accountCellViewModels[indexPath.row]
-        cell.configure(with: acccount)
         
+        if isLoaded {
+            let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseId, for: indexPath) as! AccountSummaryCell
+            cell.configure(with: acccount)
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonCell.reuseId, for: indexPath) as! SkeletonCell
         return cell
     }
 }
@@ -112,7 +125,16 @@ extension AccountSummaryViewController {
     }
     
     @objc func refreshContent() {
+        reset()
+        setupSkeletons()
+        tableVIew.reloadData()
         fetchData()
+    }
+    
+    private func reset() {
+        profile = nil
+        accounts = []
+        isLoaded = false
     }
 }
 
@@ -128,7 +150,6 @@ extension AccountSummaryViewController{
             switch result {
             case .success(let profile):
                 self.profile = profile
-                self.configureTableHeader(with: profile)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -140,7 +161,6 @@ extension AccountSummaryViewController{
             switch result {
             case .success(let accounts):
                 self.accounts = accounts
-                self.configureTableCells(with: accounts)
             case .failure(let error):
                 print(error)
             }
@@ -148,8 +168,14 @@ extension AccountSummaryViewController{
         }
         
         group.notify(queue: .main) {
-            self.tableVIew.reloadData()
             self.tableVIew.refreshControl?.endRefreshing()
+            
+            guard let profile = self.profile else { return }
+            
+            self.isLoaded = true
+            self.configureTableHeader(with: profile)
+            self.configureTableCells(withAccounts: self.accounts)
+            self.tableVIew.reloadData()
         }
     }
     
@@ -160,8 +186,8 @@ extension AccountSummaryViewController{
         headerView.configure(viewModel: vm)
     }
     
-    private func configureTableCells(with: [Account]) {
-        accountCellViewModels = accounts.map {
+    private func configureTableCells(withAccounts: [Account]) {
+        accountCellViewModels = withAccounts.map {
             AccountSummaryCell.ViewModel(accountType: $0.type, accountName: $0.name, balance: $0.amount)
         }
     }
