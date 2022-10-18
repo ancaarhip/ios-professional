@@ -29,19 +29,15 @@ class AccountSummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        setupNavigationBar()
-    }
-    
-    func setupNavigationBar() {
-        navigationItem.rightBarButtonItem = logoutBarButton
     }
 }
 
 extension AccountSummaryViewController {
     private func setup() {
+        setupNavigationBar()
         setupTableView()
         setupTableHeaderView()
-        fetcDataAndLoadViews()
+        fetcData()
     }
     
     func setupTableView() {
@@ -71,6 +67,10 @@ extension AccountSummaryViewController {
         headerView.frame.size = size
         
         tableVIew.tableHeaderView = headerView
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = logoutBarButton
     }
 }
 
@@ -105,26 +105,35 @@ extension AccountSummaryViewController {
 
 // MARK: - Networking
 extension AccountSummaryViewController{
-    private func fetcDataAndLoadViews() {
+    private func fetcData() {
+        let group = DispatchGroup()
+        
+        group.enter()
         fetchProfile(forUserId: "1") { result in
             switch result {
             case .success(let profile):
                 self.profile = profile
                 self.configureTableHeader(with: profile)
-                self.tableVIew.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
+            group.leave()
         }
+        
+        group.enter()
         fetchAccounts(withId: "1") { result in
             switch result {
             case .success(let accounts):
                 self.accounts = accounts
                 self.configureTableCells(with: accounts)
-                self.tableVIew.reloadData()
             case .failure(let error):
                 print(error)
             }
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            self.tableVIew.reloadData()
         }
     }
     
