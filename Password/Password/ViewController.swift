@@ -33,6 +33,7 @@ extension ViewController {
         setupNewPassword()
         setupConfirmPasswor()
         setupDismissKeyboardGesture()
+        setupKeyboardHiding()
     }
     
     private func setupNewPassword() {
@@ -83,6 +84,11 @@ extension ViewController {
         view.addGestureRecognizer(dismissKeyboardTap)
     }
     
+    func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @objc func viewTapped(_ recognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -102,6 +108,7 @@ extension ViewController {
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         resetButton.configuration = .filled()
         resetButton.setTitle("Reset pasword", for: [])
+        resetButton.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .touchUpInside)
     }
     
     func layout() {
@@ -120,7 +127,7 @@ extension ViewController {
     }
 }
 
-// MARK: -
+// MARK: - PasswordTextFieldDelegate
 extension ViewController: PasswordTextFieldDelegate {
     
     func editingChanged(_ sender: PasswordTextField) {
@@ -137,5 +144,49 @@ extension ViewController: PasswordTextFieldDelegate {
             _ = confirmPasswordTextField.validate()
         }
     }
+}
+
+// MARK: - Keyboard
+extension ViewController {
+    @objc func keyboardWillShow(_ sender: NSNotification) {
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextfield = UIResponder.currentFirst() as? UITextField else { return }
+        
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextFrame = view.convert(currentTextfield.frame, from: currentTextfield.superview)
+        let textFieldBottomY = convertedTextFrame.origin.y + convertedTextFrame.size.height
+        
+        if textFieldBottomY > keyboardTopY {
+            let textBoxY = convertedTextFrame.origin.y
+            let newFrameY = (textBoxY - keyboardTopY / 2) * -1
+            view.frame.origin.y = newFrameY
+        }
+    }
     
+    @objc func keyboardWillHide() {
+        view.frame.origin.y = 0
+    }
+}
+
+// MARK: - Actions
+extension ViewController {
+    @objc func resetPasswordButtonTapped(sender: UIButton) {
+        view.endEditing(true)
+        
+        let isValidNewPassword = newPasswordTextField.validate()
+        let isValidCOnfirmPassword = confirmPasswordTextField.validate()
+        
+        if isValidNewPassword && isValidCOnfirmPassword {
+            showAlert(title: "Success", message: "You have successfuly changed your pasword")
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.title = title
+        alert.message = message
+        present(alert, animated: true)
+    }
 }
