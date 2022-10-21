@@ -12,6 +12,8 @@
 		05A4F73A29009C03003E00F0 /* PasswordStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F73929009C03003E00F0 /* PasswordStatusView.swift */; };
 		05A4F77C29014578003E00F0 /* PasswordCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F77B29014578003E00F0 /* PasswordCriteria.swift */; };
 		05A4F77F2901D1EA003E00F0 /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F77E2901D1EA003E00F0 /* UIResponder+Utils.swift */; };
+		05A4F7812901F078003E00F0 /* PasswordStatusViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F7802901F078003E00F0 /* PasswordStatusViewTest.swift */; };
+		05A4F7832902705B003E00F0 /* VIewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F7822902705B003E00F0 /* VIewControllerTests.swift */; };
 		05A5C18228FFDF49006E456D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5C18128FFDF49006E456D /* AppDelegate.swift */; };
 		05A5C18628FFDF49006E456D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5C18528FFDF49006E456D /* ViewController.swift */; };
 		05A5C18B28FFDF4C006E456D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A5C18A28FFDF4C006E456D /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		05A4F73929009C03003E00F0 /* PasswordStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatusView.swift; sourceTree = "<group>"; };
 		05A4F77B29014578003E00F0 /* PasswordCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteria.swift; sourceTree = "<group>"; };
 		05A4F77E2901D1EA003E00F0 /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
+		05A4F7802901F078003E00F0 /* PasswordStatusViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatusViewTest.swift; sourceTree = "<group>"; };
+		05A4F7822902705B003E00F0 /* VIewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIewControllerTests.swift; sourceTree = "<group>"; };
 		05A5C17E28FFDF49006E456D /* Password.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Password.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A5C18128FFDF49006E456D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05A5C18528FFDF49006E456D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				05A5C19828FFDF4C006E456D /* PasswordTests.swift */,
+				05A4F7802901F078003E00F0 /* PasswordStatusViewTest.swift */,
+				05A4F7822902705B003E00F0 /* VIewControllerTests.swift */,
 			);
 			path = PasswordTests;
 			sourceTree = "<group>";
@@ -304,7 +310,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A4F7832902705B003E00F0 /* VIewControllerTests.swift in Sources */,
 				05A5C19928FFDF4C006E456D /* PasswordTests.swift in Sources */,
+				05A4F7812901F078003E00F0 /* PasswordStatusViewTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,29 +8,30 @@
 import XCTest
 @testable import Password
 
-final class PasswordTests: XCTestCase {
+final class PasswordLengthCriteriaTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testShort() throws {
+        XCTAssertFalse(PasswordCriteria.lengthCriteraMet("123456"))
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testLong() throws {
+        XCTAssertFalse(PasswordCriteria.lengthCriteraMet("1234567890123456789012345678901234567"))
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testValidShort() throws {
+        XCTAssertTrue(PasswordCriteria.lengthCriteraMet("12345678"))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testValidLong() throws {
+        XCTAssertTrue(PasswordCriteria.lengthCriteraMet("12345678901234567890123456789012"))
     }
+}
 
+final class PasswordOtherCriteriaTests {
+    func testNoSpaceMet() throws {
+        XCTAssertTrue(PasswordCriteria.noSpaceCriteriaMet("asd"))
+    }
+    func testNoSpaceNotMet() throws {
+        XCTAssertTrue(PasswordCriteria.noSpaceCriteriaMet("as d"))
+    }
 }
