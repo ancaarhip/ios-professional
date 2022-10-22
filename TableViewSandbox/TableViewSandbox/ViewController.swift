@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     let tableView = UITableView()
     
-    var tableData: [String] = []
+    var tableData: [String] = ["a", "b"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,7 @@ extension ViewController {
     func setup() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(CellView.self, forCellReuseIdentifier: "TableCell")
     }
     
     func style() {
@@ -56,7 +57,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "TableCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
         cell.textLabel?.text = tableData[indexPath.row]
         return cell
     }

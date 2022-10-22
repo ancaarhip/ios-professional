@@ -7,25 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05A4F7982902DE83003E00F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F7972902DE83003E00F0 /* ViewController.swift */; };
-		05A4F79D2902DE85003E00F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A4F79C2902DE85003E00F0 /* Assets.xcassets */; };
-		05A4F7A02902DE85003E00F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A4F79E2902DE85003E00F0 /* LaunchScreen.storyboard */; };
-		05A4F828290457DD003E00F0 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F827290457DD003E00F0 /* CellView.swift */; };
-		05A4F82A29045A05003E00F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F82929045A05003E00F0 /* AppDelegate.swift */; };
+		05A4F7EA290336F4003E00F0 /* SwiftUIAsyncImageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F7E9290336F4003E00F0 /* SwiftUIAsyncImageApp.swift */; };
+		05A4F7EC290336F4003E00F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F7EB290336F4003E00F0 /* ContentView.swift */; };
+		05A4F7EE290336F6003E00F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A4F7ED290336F6003E00F0 /* Assets.xcassets */; };
+		05A4F7F1290336F6003E00F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A4F7F0290336F6003E00F0 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05A4F7902902DE83003E00F0 /* TableViewSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		05A4F7972902DE83003E00F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		05A4F79C2902DE85003E00F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		05A4F79F2902DE85003E00F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		05A4F7A12902DE85003E00F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05A4F827290457DD003E00F0 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
-		05A4F82929045A05003E00F0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		05A4F7E6290336F4003E00F0 /* SwiftUIAsyncImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIAsyncImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05A4F7E9290336F4003E00F0 /* SwiftUIAsyncImageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAsyncImageApp.swift; sourceTree = "<group>"; };
+		05A4F7EB290336F4003E00F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		05A4F7ED290336F6003E00F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		05A4F7F0290336F6003E00F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		05A4F78D2902DE83003E00F0 /* Frameworks */ = {
+		05A4F7E3290336F4003E00F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,79 +32,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05A4F7872902DE82003E00F0 = {
+		05A4F7DD290336F4003E00F0 = {
 			isa = PBXGroup;
 			children = (
-				05A4F7922902DE83003E00F0 /* TableViewSandbox */,
-				05A4F7912902DE83003E00F0 /* Products */,
+				05A4F7E8290336F4003E00F0 /* SwiftUIAsyncImage */,
+				05A4F7E7290336F4003E00F0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		05A4F7912902DE83003E00F0 /* Products */ = {
+		05A4F7E7290336F4003E00F0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05A4F7902902DE83003E00F0 /* TableViewSandbox.app */,
+				05A4F7E6290336F4003E00F0 /* SwiftUIAsyncImage.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		05A4F7922902DE83003E00F0 /* TableViewSandbox */ = {
+		05A4F7E8290336F4003E00F0 /* SwiftUIAsyncImage */ = {
 			isa = PBXGroup;
 			children = (
-				05A4F82929045A05003E00F0 /* AppDelegate.swift */,
-				05A4F79C2902DE85003E00F0 /* Assets.xcassets */,
-				05A4F79E2902DE85003E00F0 /* LaunchScreen.storyboard */,
-				05A4F7A12902DE85003E00F0 /* Info.plist */,
-				05A4F7972902DE83003E00F0 /* ViewController.swift */,
-				05A4F827290457DD003E00F0 /* CellView.swift */,
-				05A4F826290454E9003E00F0 /* Files */,
+				05A4F7E9290336F4003E00F0 /* SwiftUIAsyncImageApp.swift */,
+				05A4F7EB290336F4003E00F0 /* ContentView.swift */,
+				05A4F7ED290336F6003E00F0 /* Assets.xcassets */,
+				05A4F7EF290336F6003E00F0 /* Preview Content */,
 			);
-			path = TableViewSandbox;
+			path = SwiftUIAsyncImage;
 			sourceTree = "<group>";
 		};
-		05A4F826290454E9003E00F0 /* Files */ = {
+		05A4F7EF290336F6003E00F0 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				05A4F7F0290336F6003E00F0 /* Preview Assets.xcassets */,
 			);
-			name = Files;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05A4F78F2902DE83003E00F0 /* TableViewSandbox */ = {
+		05A4F7E5290336F4003E00F0 /* SwiftUIAsyncImage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05A4F7A42902DE85003E00F0 /* Build configuration list for PBXNativeTarget "TableViewSandbox" */;
+			buildConfigurationList = 05A4F7F4290336F6003E00F0 /* Build configuration list for PBXNativeTarget "SwiftUIAsyncImage" */;
 			buildPhases = (
-				05A4F78C2902DE83003E00F0 /* Sources */,
-				05A4F78D2902DE83003E00F0 /* Frameworks */,
-				05A4F78E2902DE83003E00F0 /* Resources */,
+				05A4F7E2290336F4003E00F0 /* Sources */,
+				05A4F7E3290336F4003E00F0 /* Frameworks */,
+				05A4F7E4290336F4003E00F0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TableViewSandbox;
-			productName = TableViewSandbox;
-			productReference = 05A4F7902902DE83003E00F0 /* TableViewSandbox.app */;
+			name = SwiftUIAsyncImage;
+			productName = SwiftUIAsyncImage;
+			productReference = 05A4F7E6290336F4003E00F0 /* SwiftUIAsyncImage.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		05A4F7882902DE82003E00F0 /* Project object */ = {
+		05A4F7DE290336F4003E00F0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					05A4F78F2902DE83003E00F0 = {
+					05A4F7E5290336F4003E00F0 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 05A4F78B2902DE82003E00F0 /* Build configuration list for PBXProject "TableViewSandbox" */;
+			buildConfigurationList = 05A4F7E1290336F4003E00F0 /* Build configuration list for PBXProject "SwiftUIAsyncImage" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,54 +110,42 @@
 				en,
 				Base,
 			);
-			mainGroup = 05A4F7872902DE82003E00F0;
-			productRefGroup = 05A4F7912902DE83003E00F0 /* Products */;
+			mainGroup = 05A4F7DD290336F4003E00F0;
+			productRefGroup = 05A4F7E7290336F4003E00F0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05A4F78F2902DE83003E00F0 /* TableViewSandbox */,
+				05A4F7E5290336F4003E00F0 /* SwiftUIAsyncImage */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		05A4F78E2902DE83003E00F0 /* Resources */ = {
+		05A4F7E4290336F4003E00F0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A4F7A02902DE85003E00F0 /* LaunchScreen.storyboard in Resources */,
-				05A4F79D2902DE85003E00F0 /* Assets.xcassets in Resources */,
+				05A4F7F1290336F6003E00F0 /* Preview Assets.xcassets in Resources */,
+				05A4F7EE290336F6003E00F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		05A4F78C2902DE83003E00F0 /* Sources */ = {
+		05A4F7E2290336F4003E00F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A4F82A29045A05003E00F0 /* AppDelegate.swift in Sources */,
-				05A4F828290457DD003E00F0 /* CellView.swift in Sources */,
-				05A4F7982902DE83003E00F0 /* ViewController.swift in Sources */,
+				05A4F7EC290336F4003E00F0 /* ContentView.swift in Sources */,
+				05A4F7EA290336F4003E00F0 /* SwiftUIAsyncImageApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		05A4F79E2902DE85003E00F0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05A4F79F2902DE85003E00F0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		05A4F7A22902DE85003E00F0 /* Debug */ = {
+		05A4F7F2290336F6003E00F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -222,7 +205,7 @@
 			};
 			name = Debug;
 		};
-		05A4F7A32902DE85003E00F0 /* Release */ = {
+		05A4F7F3290336F6003E00F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -276,17 +259,19 @@
 			};
 			name = Release;
 		};
-		05A4F7A52902DE85003E00F0 /* Debug */ = {
+		05A4F7F5290336F6003E00F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIAsyncImage/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TableViewSandbox/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -294,7 +279,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = aarhip.com.TableViewSandbox;
+				PRODUCT_BUNDLE_IDENTIFIER = aarhip.com.SwiftUIAsyncImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -302,17 +287,19 @@
 			};
 			name = Debug;
 		};
-		05A4F7A62902DE85003E00F0 /* Release */ = {
+		05A4F7F6290336F6003E00F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIAsyncImage/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TableViewSandbox/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +307,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = aarhip.com.TableViewSandbox;
+				PRODUCT_BUNDLE_IDENTIFIER = aarhip.com.SwiftUIAsyncImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -331,25 +318,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05A4F78B2902DE82003E00F0 /* Build configuration list for PBXProject "TableViewSandbox" */ = {
+		05A4F7E1290336F4003E00F0 /* Build configuration list for PBXProject "SwiftUIAsyncImage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05A4F7A22902DE85003E00F0 /* Debug */,
-				05A4F7A32902DE85003E00F0 /* Release */,
+				05A4F7F2290336F6003E00F0 /* Debug */,
+				05A4F7F3290336F6003E00F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05A4F7A42902DE85003E00F0 /* Build configuration list for PBXNativeTarget "TableViewSandbox" */ = {
+		05A4F7F4290336F6003E00F0 /* Build configuration list for PBXNativeTarget "SwiftUIAsyncImage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05A4F7A52902DE85003E00F0 /* Debug */,
-				05A4F7A62902DE85003E00F0 /* Release */,
+				05A4F7F5290336F6003E00F0 /* Debug */,
+				05A4F7F6290336F6003E00F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 05A4F7882902DE82003E00F0 /* Project object */;
+	rootObject = 05A4F7DE290336F4003E00F0 /* Project object */;
 }
