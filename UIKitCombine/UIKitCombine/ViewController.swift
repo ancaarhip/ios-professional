@@ -71,7 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let title = newPostField.text ?? "Comming soon"
         let post = Post(title: title)
         NotificationCenter.default.post(name: .newPost, object: post)
-    }
+    }   
     
     @IBAction func acceptTerms(_ sender: UISwitch) {
         acceptedTerms = sender.isOn
