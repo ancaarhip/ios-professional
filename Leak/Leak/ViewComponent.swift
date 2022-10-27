@@ -16,5 +16,5 @@ class ViewComponent {
 //    Leak
 //    var parent: UIViewController?
     
-    weak var parent: UIViewController?
+    var parent: UIViewController?
 }
