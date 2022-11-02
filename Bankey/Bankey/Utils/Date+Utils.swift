@@ -15,8 +15,8 @@ extension Date {
     }
     
     var monthDayYearString: String {
-        let dateFOrmatter = DateFormatter()
-        dateFOrmatter.dateFormat = "MMM d, yyyy"
-        return dateFOrmatter.string(from: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        return dateFormatter.string(from: self)
     }
 }
