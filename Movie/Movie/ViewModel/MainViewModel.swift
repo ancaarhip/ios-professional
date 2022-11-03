@@ -2,17 +2,18 @@
 //  MainViewModel.swift
 //  Movie
 //
-//  Created by Anca Arhip on 30.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import SwiftUI
 
+enum Tab: String {
+    case favorites = "Favorites"
+    case home = "Home"
+    case search = "Search"
+}
+
 extension MainView {
-    enum Tab: String {
-        case favorites = "Favorites"
-        case home = "Home"
-        case search = "Search"
-    }
     
     var tabs: [Tab: (text: Text, image: Image)] {
         [

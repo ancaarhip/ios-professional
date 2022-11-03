@@ -2,21 +2,31 @@
 //  FavoritesView.swift
 //  Movie
 //
-//  Created by Anca Arhip on 30.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import SwiftUI
+import Combine
 
 struct FavoritesView: View {
     
     // MARK: - PROPERTIES
     
-    @EnvironmentObject var favorites: Favorites<Movie>
+    @ObservedObject var viewModel = FavoritesViewModel()
     
     // MARK: - BODY
     
     var body: some View {
-        MoviesGridView(movies: FavoritesViewModel(favorites).favoriteMovies)
+        NavigationView {
+            VStack {
+                MoviesGridView(movies: viewModel.favoriteMovies)
+            } //: VSTACK
+            .navigationBarTitle(Tab.favorites.rawValue, displayMode: .inline)
+            .navigationBarItems(
+                trailing:
+                    SortButtonView(sender: Tab.favorites)
+            )
+        } //: NAVIGATION
     }
 }
 

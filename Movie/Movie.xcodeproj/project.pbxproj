@@ -21,6 +21,9 @@
 		05931D182911A4010021F111 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05931D172911A4010021F111 /* MovieViewModel.swift */; };
 		05931D1C2911C4350021F111 /* MoviesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05931D1B2911C4350021F111 /* MoviesGridView.swift */; };
 		05931D1E2911D75C0021F111 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05931D1D2911D75C0021F111 /* FavoritesViewModel.swift */; };
+		05931D20291255720021F111 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05931D1F291255720021F111 /* Notification.Name.swift */; };
+		05931D222912DE430021F111 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05931D212912DE430021F111 /* MovieDetailView.swift */; };
+		05931D242913002D0021F111 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05931D232913002D0021F111 /* SearchBarView.swift */; };
 		0598A29A290FBF5500853709 /* MoviePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598A299290FBF5500853709 /* MoviePublisher.swift */; };
 		0598A29C290FC86B00853709 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598A29B290FC86A00853709 /* MoviesViewModel.swift */; };
 		0598A29E290FD65B00853709 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0598A29D290FD65B00853709 /* Date+Utils.swift */; };
@@ -49,6 +52,9 @@
 		05931D172911A4010021F111 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		05931D1B2911C4350021F111 /* MoviesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesGridView.swift; sourceTree = "<group>"; };
 		05931D1D2911D75C0021F111 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		05931D1F291255720021F111 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
+		05931D212912DE430021F111 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		05931D232913002D0021F111 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		0598A299290FBF5500853709 /* MoviePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePublisher.swift; sourceTree = "<group>"; };
 		0598A29B290FC86A00853709 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		0598A29D290FD65B00853709 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
@@ -115,9 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				0512A48B290E731500468590 /* MovieApp.swift */,
-				0512A48D290E731500468590 /* HomeView.swift */,
 				0512A49A290E78B000468590 /* MainView.swift */,
 				0512A49E290E7A1100468590 /* FavoritesView.swift */,
+				0512A48D290E731500468590 /* HomeView.swift */,
 				0512A4A0290E7A8B00468590 /* SearchView.swift */,
 			);
 			path = App;
@@ -127,10 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				0512A4A3290E7E4900468590 /* MainViewModel.swift */,
-				0598A29B290FC86A00853709 /* MoviesViewModel.swift */,
-				0598A2A62910608B00853709 /* ImageViewModel.swift */,
-				05931D172911A4010021F111 /* MovieViewModel.swift */,
 				05931D1D2911D75C0021F111 /* FavoritesViewModel.swift */,
+				0598A29B290FC86A00853709 /* MoviesViewModel.swift */,
+				05931D172911A4010021F111 /* MovieViewModel.swift */,
+				0598A2A62910608B00853709 /* ImageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -140,7 +146,6 @@
 			children = (
 				05A652B729112E330018EC9F /* Extensions */,
 				0512A4A6290E929300468590 /* Constants.swift */,
-				05A652BA291145680018EC9F /* Favorites.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				0512A4A9290E95FB00468590 /* Http.swift */,
+				05A652BA291145680018EC9F /* Favorites.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,6 +176,8 @@
 				0598A2A2291054CC00853709 /* AsyncImageView.swift */,
 				05A652B52911259F0018EC9F /* SortButtonView.swift */,
 				05931D1B2911C4350021F111 /* MoviesGridView.swift */,
+				05931D212912DE430021F111 /* MovieDetailView.swift */,
+				05931D232913002D0021F111 /* SearchBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 			children = (
 				0598A29D290FD65B00853709 /* Date+Utils.swift */,
 				05A652B829112E7B0018EC9F /* Collection+Sort.swift */,
+				05931D1F291255720021F111 /* Notification.Name.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -262,7 +271,9 @@
 				0598A29E290FD65B00853709 /* Date+Utils.swift in Sources */,
 				05A652B62911259F0018EC9F /* SortButtonView.swift in Sources */,
 				05A652B929112E7B0018EC9F /* Collection+Sort.swift in Sources */,
+				05931D242913002D0021F111 /* SearchBarView.swift in Sources */,
 				0598A2A5291056BF00853709 /* ImageLoader.swift in Sources */,
+				05931D222912DE430021F111 /* MovieDetailView.swift in Sources */,
 				0512A4A1290E7A8B00468590 /* SearchView.swift in Sources */,
 				0512A49F290E7A1100468590 /* FavoritesView.swift in Sources */,
 				0512A4AA290E95FB00468590 /* Http.swift in Sources */,
@@ -276,6 +287,7 @@
 				0598A29C290FC86B00853709 /* MoviesViewModel.swift in Sources */,
 				0512A48C290E731500468590 /* MovieApp.swift in Sources */,
 				0512A4A4290E7E4900468590 /* MainViewModel.swift in Sources */,
+				05931D20291255720021F111 /* Notification.Name.swift in Sources */,
 				0598A2A72910608B00853709 /* ImageViewModel.swift in Sources */,
 				0598A2A3291054CC00853709 /* AsyncImageView.swift in Sources */,
 				05931D1C2911C4350021F111 /* MoviesGridView.swift in Sources */,

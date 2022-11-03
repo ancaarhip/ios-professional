@@ -2,7 +2,7 @@
 //  Constants.swift
 //  Movie
 //
-//  Created by Anca Arhip on 30.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import Foundation
@@ -26,5 +26,6 @@ struct Constants {
     static let baseURL = URL(string: "https://api.themoviedb.org/3")!
     static let baseImageURL = URL(string: "https://image.tmdb.org/t/p/w500/")!
     static let apiKey = "abfabb9de9dc58bb436d38f97ce882bc"
-    static let endpoint = "/movie"
+    static let movies = "/movie"
+    static let search = "/search"
 }

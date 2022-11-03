@@ -2,7 +2,7 @@
 //  ImageLoader.swift
 //  Movie
 //
-//  Created by Anca Arhip on 31.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Combine
 
 struct ImageLoader {
     
-    var networkService: NetworkService = Http()
+    var networkService: DataService = Http()
     
     private var imageSubject = PassthroughSubject<Data, Error>()
     

@@ -13,7 +13,7 @@ struct SortButtonView: View {
     
     @State private var actionSheetIsPresented: Bool = false
     
-    var movieViewModel: MoviesViewModel
+    var sender: Tab
     
     // MARK: - BODY
     
@@ -33,7 +33,9 @@ struct SortButtonView: View {
                         return .cancel()
                     default:
                         return .default(Text(sortType.rawValue)) {
-                            movieViewModel.sortedBy = sortType
+                            NotificationCenter.default.post(
+                                name:Notification.Name.sort(sender.rawValue),
+                                object: sortType)
                         }
                     }
                     
@@ -45,6 +47,6 @@ struct SortButtonView: View {
 
 struct SortButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        SortButtonView(movieViewModel: MoviesViewModel())
+        SortButtonView(sender: .home)
     }
 }

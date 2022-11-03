@@ -2,7 +2,7 @@
 //  SearchView.swift
 //  Movie
 //
-//  Created by Anca Arhip on 30.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import SwiftUI
@@ -11,11 +11,20 @@ struct SearchView: View {
     
     // MARK: - PROPERTIES
     
+    @StateObject var moviesViewModel = MoviesViewModel()
+
     // MARK: - BODY
     
     var body: some View {
-        Text("Search")
-            .navigationTitle("Search")
+        NavigationView {
+        
+            VStack {
+                SearchBarView(searchText: $moviesViewModel.queryString)
+                    .padding(.bottom, 40)
+                
+                MoviesGridView(movies: moviesViewModel.movies)
+            }//: VSTACK
+        } //: NAVIGATION
     }
 }
 

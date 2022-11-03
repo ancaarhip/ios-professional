@@ -2,7 +2,7 @@
 //  MoviePubliser.swift
 //  Movie
 //
-//  Created by Anca Arhip on 31.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Combine
 
 struct MoviePublisher {
     
-    var networkService: NetworkService = Http()
+    var moviesService: DataService = Http()
     
     private var moviesSubject = PassthroughSubject<[MovieModel], Error>()
     
@@ -18,16 +18,27 @@ struct MoviePublisher {
         return moviesSubject.eraseToAnyPublisher()
     }
     
-    func fetch(_ recommandation: RecommendationType) {
+    func fetch(for recommendation: RecommendationType? = nil, with queryString: String? = nil) {
+        
         guard var urlComponents = URLComponents(url: Constants.baseURL, resolvingAgainstBaseURL: false) else {
             moviesSubject.send(completion: .failure(NetworkError.invalidURL))
             return
         }
-        urlComponents.path.append("\(Constants.endpoint)/\(recommandation)")
         
         urlComponents.queryItems = [
             URLQueryItem(name: "api_key", value: Constants.apiKey),
         ]
+        
+        if let recommandation = recommendation {
+            urlComponents.path.append("\(Constants.movies)")
+            urlComponents.path.append("/\(recommandation)")
+        }
+        
+        if let queryString = queryString {
+            urlComponents.path.append("\(Constants.search)")
+            urlComponents.path.append("\(Constants.movies)")
+            urlComponents.queryItems?.append(URLQueryItem(name: "query", value: queryString))
+        }
         
         guard let url = urlComponents.url else {
             moviesSubject.send(completion: .failure(NetworkError.invalidQuery))
@@ -38,7 +49,7 @@ struct MoviePublisher {
     }
     
     private func get(_ url: URL) {
-        networkService.get(url) { result in
+        moviesService.get(url) { result in
             switch result {
             case .success(let data):
                 do {

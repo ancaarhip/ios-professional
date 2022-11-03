@@ -22,7 +22,11 @@ struct MoviesGridView: View {
             LazyVGrid(columns: gridLayout, alignment: .center, spacing: 6) {
                 
                 ForEach(movies, id: \.movie.id) { item in
-                    MovieTileView(movieModel: item)
+                    NavigationLink {
+                        MovieDetailView()
+                    } label: {
+                        MovieTileView(movieModel: item)
+                    }
                     
                 }
             } //: GRID

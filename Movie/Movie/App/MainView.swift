@@ -2,7 +2,7 @@
 //  MainView.swift
 //  Movie
 //
-//  Created by Anca Arhip on 30.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import SwiftUI
@@ -38,6 +38,9 @@ struct MainView: View {
                 }
                 .tag(Tab.search)
         } //: TAB
+        .navigationBarItems(
+            leading: Image(systemName: "globe")
+        )
         .onAppear {
             // correct the transparency bug for Tab bars
             let tabBarAppearance = UITabBarAppearance()

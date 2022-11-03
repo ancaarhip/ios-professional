@@ -32,22 +32,23 @@ struct Movie: Hashable, Codable {
 
 struct MovieContainer {
     var movie: Movie
-    var favIcon: String
-    
-    init(movie: Movie, favorites: Favorites<Movie>) {
-        self.movie = movie
-        self.favIcon = favorites.contains(movie)
+    var favIcon: String {
+        Favorites.instance.contains(movie)
                 ? "ic_add_to_favorites_red"
                 : "ic_add_to_favorites_black"
     }
     
-    mutating func favToggle(_ favorites: Favorites<Movie>) {        
-        if favorites.contains(movie) {
-            favorites.remove(movie)
-            self.favIcon = "ic_add_to_favorites_black"
-        } else {
-            favorites.add(movie)
-            self.favIcon = "ic_add_to_favorites_red"
-        }
+    init(movie: Movie) {
+        self.movie = movie
     }
+    
+    func favToggle() -> String {
+        if Favorites.instance.contains(movie) {
+            Favorites.instance.remove(movie)
+        } else {
+            Favorites.instance.add(movie)
+        }
+        return favIcon
+    }
+    
 }

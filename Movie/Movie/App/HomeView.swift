@@ -2,7 +2,7 @@
 //  HomeView.swift
 //  Movie
 //
-//  Created by Anca Arhip on 30.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import SwiftUI
@@ -27,18 +27,21 @@ struct HomeView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .onChange(of: selectedTab) { newValue in
+                .onChange(of: selectedTab) { _ in
                     moviesViewModel.recommendation = selectedTab
                 }
                 
                 MoviesGridView(movies: moviesViewModel.movies)
                 
             } //: VSTACK
-            .navigationBarTitle(MainView.Tab.home.rawValue, displayMode: .inline)
+            .navigationBarTitle(Tab.home.rawValue, displayMode: .inline)
             .navigationBarItems(
                 trailing:
-                    SortButtonView(movieViewModel: moviesViewModel)
+                    SortButtonView(sender: Tab.home)
             )
+            .onAppear{
+                moviesViewModel.recommendation = selectedTab
+            }
         } //: NAVIGATION
     }
 }

@@ -9,42 +9,43 @@
 import SwiftUI
 import Combine
 
-class Favorites<T: Codable>: ObservableObject where T: Hashable {
+class Favorites: ObservableObject {
     
-    private var favorites: Set<T> // Sohuld store only the ids - ideally
+    private var favorites: Set<Movie> // Sohuld store only the ids - ideally
 
     private let saveKey = "Favorites"
+    
+    static var instance = Favorites()
 
-    init() {
+    private init() {
         favorites = []
         
         if let favoritesData = UserDefaults.standard.object(forKey: saveKey) as? Data {
             do {
-                favorites = try JSONDecoder().decode(Set<T>.self, from: favoritesData)
+                favorites = try JSONDecoder().decode(Set<Movie>.self, from: favoritesData)
             } catch {
                 print("Eror decoding favorites data \(error)")
             }
         }
-        
     }
 
-    func contains(_ favorite: T) -> Bool {
+    func contains(_ favorite: Movie) -> Bool {
         favorites.contains(favorite)
     }
 
-    func add(_ favorite: T) {
-        objectWillChange.send()
+    func add(_ favorite: Movie) {
         favorites.insert(favorite)
+        broadcast()
         save()
     }
 
-    func remove(_ favorite: T) {
-        objectWillChange.send()
+    func remove(_ favorite: Movie) {
         favorites.remove(favorite)
+        broadcast()
         save()
     }
 
-    func save() {
+    private func save() {
         do {
             let favoritesData = try JSONEncoder().encode(favorites)
             UserDefaults.standard.set(favoritesData, forKey: saveKey)
@@ -53,7 +54,11 @@ class Favorites<T: Codable>: ObservableObject where T: Hashable {
         }
     }
     
-    func getFavorites() -> Set<T> {
+    private func broadcast() {
+        objectWillChange.send()
+    }
+    
+    func getFavorites() -> Set<Movie> {
         return favorites
     }
 }

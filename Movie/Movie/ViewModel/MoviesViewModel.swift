@@ -2,7 +2,7 @@
 //  MovieViewModel.swift
 //  Movie
 //
-//  Created by Anca Arhip on 31.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import Foundation
@@ -15,24 +15,21 @@ class MoviesViewModel: ObservableObject {
     
     @Published var recommendation: RecommendationType = .now_playing {
         didSet {
-            moviePublisher.fetch(recommendation)
+            moviePublisher.fetch(for: recommendation)
+        }
+    }
+    
+    @Published var queryString: String = "" {
+        didSet {
+            if !queryString.isEmpty {
+                moviePublisher.fetch(with: queryString)
+            }
         }
     }
     
     @Published var sortedBy: SortType = SortType.none {
         didSet {
-            switch sortedBy {
-            case .ratingAsc:
-                movies = movies.sortedObjects(by: \.movie.averageRating, <)
-            case .ratingDesc:
-                movies = movies.sortedObjects(by: \.movie.averageRating, >)
-            case .releaseAsc:
-                movies = movies.sortedObjects(by: \.movie.releaseYear, <)
-            case .releaseDesc:
-                movies = movies.sortedObjects(by: \.movie.releaseYear, >)
-            default:
-                return
-            }
+            movies = movies.sortMovies(by: sortedBy)
         }
     }
     
@@ -41,9 +38,6 @@ class MoviesViewModel: ObservableObject {
     private var movieSubscriber: AnyCancellable?
     
     init() {
-        recommendation = .now_playing
-        
-        let favorites = Favorites<Movie>()
         
         movieSubscriber = moviePublisher.movies
             .receive(on: DispatchQueue.main)
@@ -51,9 +45,22 @@ class MoviesViewModel: ObservableObject {
                 print(error)
             } receiveValue: { movies in
                 self.movies = movies.map {
-                    let movie = Movie($0)
-                    return MovieContainer(movie: movie, favorites: favorites)
+                    MovieContainer(movie: Movie($0))
                 }
             }
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(sortMovies),
+            name: Notification.Name.sort(Tab.home.rawValue),
+            object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func sortMovies(_ notification: NSNotification) {
+        sortedBy = notification.object as? SortType ?? .none
     }
 }

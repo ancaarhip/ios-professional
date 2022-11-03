@@ -2,7 +2,7 @@
 //  MovieTileView.swift
 //  Movie
 //
-//  Created by Anca Arhip on 31.10.2022.
+//  Created by Anca Arhip on 01.11.2022.
 //
 
 import SwiftUI
@@ -11,9 +11,9 @@ struct MovieTileView: View {
     
     // MARK: - PROPERTIES
     
-    @EnvironmentObject var favorites: Favorites<Movie>
+    var movieModel: MovieContainer
     
-    @State var movieModel: MovieContainer 
+    @State var favIcon: String = "Placeholder"
     
     // MARK: - BODY
     
@@ -39,12 +39,16 @@ struct MovieTileView: View {
                 Spacer()
                 
                 Button {
-                    movieModel.favToggle(favorites)
+                    favIcon = movieModel.favToggle()
                 } label: {
-                    Image(movieModel.favIcon)
+                    Image(favIcon)
+                        .padding(.all, 3)
                 }
                 
             } //: HSTACK
+            .onAppear {
+                favIcon = movieModel.favIcon
+            }
             .padding(EdgeInsets(top: 2, leading: 12, bottom: 12, trailing: 12))
         } //: VSTACK
         .background(Color.accentColor)
