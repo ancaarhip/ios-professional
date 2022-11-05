@@ -25,7 +25,9 @@ struct WeatherView: View {
                         } label: {
                             AlertRowView(alertModel: alert)
                         }
-                        
+                        .onAppear {
+                            alertsViewModel.loadMore(currentItem: alert)
+                        }
                     }
                 } //: LIST
                 .listStyle(PlainListStyle())

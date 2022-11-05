@@ -32,7 +32,9 @@ struct ContactsView: View {
                     }
                 }
             } //: LIST
+            .navigationBarTitle("Contacts", displayMode: .inline)
         } //: NAVIGATION
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     // FUNCTIONS
