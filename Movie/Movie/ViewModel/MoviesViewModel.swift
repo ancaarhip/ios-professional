@@ -43,8 +43,8 @@ class MoviesViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { error in
                 print(error)
-            } receiveValue: { movies in
-                self.movies = movies.map {
+            } receiveValue: { [weak self] movies in
+                self?.movies = movies.map {
                     MovieContainer(movie: Movie($0))
                 }
             }

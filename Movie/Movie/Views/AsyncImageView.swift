@@ -24,7 +24,7 @@ struct AsyncImageView: View {
                 .cornerRadius(4)
                 .padding(.all, 3)
         } else {
-            Image(systemName: "photo")
+            ProgressView()
         }
     }
 }

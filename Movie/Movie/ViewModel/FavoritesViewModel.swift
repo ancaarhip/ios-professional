@@ -19,8 +19,8 @@ class FavoritesViewModel: ObservableObject {
     init() {
         
         movieSubscriber = Favorites.instance.objectWillChange
-            .sink(receiveValue: { _ in
-                self.loadFavorites()
+            .sink(receiveValue: { [weak self] _ in
+                self?.loadFavorites()
             })
             
         loadFavorites()

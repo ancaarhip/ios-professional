@@ -23,8 +23,8 @@ class ImageViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { error in
                 print(error)
-            }, receiveValue: {
-                self.image = UIImage(data: $0)
+            }, receiveValue: { [weak self] in
+                self?.image = UIImage(data: $0)
             })
     }
 }
