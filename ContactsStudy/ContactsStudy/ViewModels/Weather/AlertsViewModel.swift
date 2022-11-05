@@ -24,7 +24,6 @@ class AlertsViewModel: ObservableObject {
             .flatMap { alerts in
                 alerts.publisher.setFailureType(to: Error.self)
             }
-            .prefix(10)
             .flatMap { [unowned self] alert in
                 self.dataService.getImage()
                     .map { data in
