@@ -74,6 +74,8 @@ struct GalleryView: View {
             .padding(.horizontal, 10)
             .padding(.vertical, 50)
         } //: SCROLL
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(MotionAnimationView())
     }
 }
 

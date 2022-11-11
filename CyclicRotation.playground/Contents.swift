@@ -195,32 +195,87 @@ class Node {
 
 func removeDuplictates(_ head: Node?) -> Node? {
     
-    var node = head
+    var current = head
+    var previous: Node? = nil
     var repo: Set<Int> = []
     
-    while node != nil {
-        print(node!.data)
-        if let nextNode = node!.next {
-            print(nextNode.data)
-            if !repo.insert(nextNode.data).inserted  {
-//                node?.next = nextNode.next
-                print("inserted")
-            }
+    while current != nil {
+        if repo.insert(current!.data).inserted {
+            previous = current
+        } else {
+            previous?.next = current!.next
         }
-        node = node!.next
+        current = current!.next
     }
-    print(repo)
     return head
 }
 
-let node3 = Node(3)
-let node2 = Node(2, node3)
-let node1 = Node(1, node2)
-node3.next = Node(1)        // duplicate
-printLinkedListSimple(node1)
-print("===")
-removeDuplictates(node1)
-printLinkedListSimple(node1)
+//let node3 = Node(3)
+//let node2 = Node(2, node3)
+//let node1 = Node(1, node2)
+//node3.next = Node(1)        // duplicate
+//printLinkedListSimple(node1)
+//print("===")
+//removeDuplictates(node1)
+//printLinkedListSimple(node1)
 
-var se: Set<Int> = [2, 3]
-se.insert(2).inserted
+class BiNode {
+    var key: Int
+    var left: BiNode?
+    var right: BiNode?
+    
+    init(_ data: Int) {
+        self.key = data
+    }
+}
+
+func isSubTree(_ tree: BiNode, _ subTree: BiNode) -> Bool {
+    if isSubTreeHead(tree, subTree) {
+        return true
+    }
+    return isSubTreeHead(tree.left, subTree) || isSubTreeHead(tree.right, subTree)
+}
+
+func isSubTreeHead(_ tree: BiNode?, _ subTree: BiNode?) -> Bool {
+    guard tree != nil && subTree != nil else { return subTree == nil }
+    
+    if tree!.key != subTree!.key {
+        return false
+    }
+    
+    return isSubTreeHead(tree!.left, subTree!.left) && isSubTreeHead(tree!.right, subTree!.right)
+}
+
+func getOrder(_ tree: BiNode?) -> String{
+    var order = ""
+    guard tree != nil else { return order }
+    order += "\(tree!.key)"
+    order += getOrder(tree!.left)
+    order += getOrder(tree!.right)
+    return order
+}
+
+let root = BiNode(5)
+root.left = BiNode(3)
+root.right = BiNode(7)
+root.left?.left = BiNode(2)
+root.left?.right = BiNode(4)
+root.right?.left = BiNode(6)
+root.right?.right = BiNode(8)
+
+let rootOrder = getOrder(root)  // 5324768
+let subTree = BiNode(7)
+subTree.left = BiNode(6)
+subTree.right = BiNode(8)
+
+let ssubTree = BiNode(9)
+ssubTree.left = BiNode(7)
+ssubTree.left?.left = BiNode(6)
+ssubTree.left?.right = BiNode(8)
+
+let subTreeOrder = getOrder(subTree)  // 768
+print(getOrder(root))
+
+print(rootOrder.contains(subTreeOrder))
+
+isSubTree(root, subTree)
